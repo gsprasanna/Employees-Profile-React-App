@@ -1,0 +1,180 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.modal-center {
+  flex-direction: column;
+  display: flex;
+  border: 2px solid white;
+  height: 50vh;
+  width: 70vh;
+}
+
+.user-account-list {
+  color: black;
+  font-weight: 300;
+  font-size: large;
+}
+
+.user-account-list:hover {
+  text-decoration: none;
+}
+
+.account-title {
+  text-align: center;
+  position: relative;
+  background-color: #f3f1f18a;
+  color: black;
+  font-family: sans-serif;
+  padding: 30px;
+  font-size: x-large;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.sidebar {
+  margin: 0px;
+  padding: 0px;
+  background-color: #423fe7;
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: x-large;
+}
+
+.sidebar a {
+  display: block;
+  color: #aea2e8;
+  padding: 0px;
+  text-decoration: none;
+  margin: 0px auto 0px auto;
+}
+
+.sidebar a.active {
+  color: white;
+}
+.sidebar a:hover {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.topbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sidebar-title {
+  display: flex;
+  margin: 50px 50px 0px 50px;
+}
+.profile-icon {
+  display: flex;
+  margin: 50px 50px 0px 50px;
+}
+
+.profile-img {
+  height: 28px;
+  width: 32px;
+  margin-right: 15px;
+  /* margin-bottom: 10px; */
+}
+
+.user-list {
+  overflow-y: scroll;
+  height: 30vh;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.user-post-card {
+  padding: 40px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.post-title {
+  font-size: medium !important;
+  font-weight: 400 !important;
+}
+
+.post-body {
+  padding-top: 1.25rem;
+  font-size: medium;
+}
+
+.post-img {
+  height: 18vh;
+}
+
+.post-comment-icon {
+  margin-top: 10px;
+}
+
+.post-comment-icon > a:hover {
+  cursor: pointer;
+}
+
+.hr-line-activity {
+  width: 19vh;
+}
+
+.activity-title-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.center-element {
+  display: flex;
+  align-items: center;
+}
+
+.color-text-grey {
+  color: grey;
+}
+
+.card-activity {
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.main-content {
+  height: 100vh;
+  overflow-y: scroll;
+}
