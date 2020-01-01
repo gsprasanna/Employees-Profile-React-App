@@ -6,7 +6,9 @@ const routes = {
   profile: "/profile/:user",
   posts: "/post",
   gallery: "/gallery",
-  todo: "/todo"
+  todo: "/todo",
+  albums: "/album/:albumId",
+  signOut: "/signout"
 };
 
 export default routes;

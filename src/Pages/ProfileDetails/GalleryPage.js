@@ -8,19 +8,15 @@ class GalleryPage extends Component {
     debugger;
     const { userDetails, userAlbums } = this.props;
     return (
-      <>
-        <ProfileSideBar
+      <div className="row">
+        <ProfileSideBar />
+
+        <Gallery
           fullName={userDetails.name}
           profilePicture={userDetails.profilepicture}
+          userAlbums={userAlbums}
         />
-        {userAlbums.length ? (
-          userAlbums.map(album => {
-            return <Gallery title={album.title} />;
-          })
-        ) : (
-          <LoadingIndicator />
-        )}
-      </>
+      </div>
     );
   }
 }

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { faShare, faCommentAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Row, Col, Image, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import LoadingIndicator from "./LoadingIndicator";
+import { Row, Image, Modal, ModalBody, Button } from "react-bootstrap";
+import { NavLink, Link } from "react-router-dom";
+import routes from "../routes/routes";
 
 const Post = ({
   /* destructuring the props */
@@ -16,23 +19,49 @@ const Post = ({
   postComments
 }) => {
   debugger;
+  /* useState used to manage the state in functional components */
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   /* return the post details and sidebar components */
   return (
     <div className="col-md-10">
-      <Row className="topbar">
+      <Row className="topbar container">
         <div className="sidebar-title">Posts</div>
         <div className="profile-icon">
-          <Image
-            src={profilePicture}
-            alt="loading"
-            className="profile-img"
-            roundedCircle
-          />
-          <label>{fullName}</label>
+          <Link className="user-account-list" onClick={handleShow}>
+            <Image
+              src={profilePicture}
+              alt="loading"
+              className="profile-img"
+              roundedCircle
+            />
+            <label>{fullName}</label>
+          </Link>
+          <Modal show={show} onHide={handleClose} animation={false}>
+            <Modal.Body>
+              <div>
+                <Image
+                  src={profilePicture}
+                  style={{ width: "50%", height: "25%" }}
+                  alt="loading"
+                  className=""
+                  roundedCircle
+                />
+                <h4>{fullName}</h4>
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <NavLink to={routes.login} className="m-auto">
+                <Button variant="danger">Sign Out</Button>
+              </NavLink>
+            </Modal.Footer>
+          </Modal>
         </div>
       </Row>
       <hr />
-      <Row className="main-content">
+      <Row className="main-content container">
         <div className="col-md-7">
           {userPost.length ? (
             userPost.map((post, Index) => {

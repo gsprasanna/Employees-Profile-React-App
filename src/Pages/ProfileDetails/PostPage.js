@@ -16,7 +16,8 @@ class PostPage extends Component {
       todayActivity,
       yesterdayActivity,
       earlierActivity,
-      postComments
+      postComments,
+      userProfileUrl
     } = this.props;
     return (
       <div className="row">
@@ -25,10 +26,7 @@ class PostPage extends Component {
           <LoadingIndicator />
         ) : (
           <>
-            <ProfileSideBar
-              fullName={userDetails.name}
-              profilePicture={userDetails.profilepicture}
-            />
+            <ProfileSideBar />
             <Post
               fullName={userDetails.name}
               profilePicture={userDetails.profilepicture}

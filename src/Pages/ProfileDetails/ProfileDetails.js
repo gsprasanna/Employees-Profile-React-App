@@ -22,7 +22,7 @@ class ProfileDetails extends Component {
     debugger;
     /* destructuring the state and props */
     const { fullName } = this.state;
-    const { userDetails } = this.props;
+    const { userDetails, userProfileUrl } = this.props;
     return (
       <div className="row">
         {Object.keys(userDetails).length === 0 &&
@@ -30,10 +30,7 @@ class ProfileDetails extends Component {
           <LoadingIndicator />
         ) : (
           <>
-            <ProfileSideBar
-              fullName={userDetails.name}
-              profilePicture={userDetails.profilepicture}
-            />
+            <ProfileSideBar fullName={userDetails.name} />
             <ProfileContent
               fullName={userDetails.name}
               userName={userDetails.username}

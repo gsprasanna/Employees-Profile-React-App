@@ -36,6 +36,16 @@
   }
 }
 
+.tbl-key-color {
+  color: grey;
+}
+
+.tbl-value-color {
+  font-weight: bold;
+  color: #4e4d4d;
+  text-align: left;
+}
+
 .modal-center {
   flex-direction: column;
   display: flex;
@@ -68,11 +78,11 @@
 
 /* sidebar styles */
 .sidebar {
-  margin: 0px;
+  /* margin: 0px; */
   padding: 0px;
   background-color: #423fe7;
   position: relative;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,6 +114,9 @@
 .sidebar-title {
   display: flex;
   margin: 50px 50px 0px 50px;
+  font-weight: bold;
+  font-size: x-large;
+  color: #636060;
 }
 .profile-icon {
   display: flex;
@@ -178,4 +191,48 @@
 .main-content {
   height: 100vh;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.card-todo {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  height: 60vh;
+  padding: 0px !important;
+}
+
+.card-todo-completed {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  height: 60vh;
+  padding: 0px !important;
+}
+
+.todo-title {
+  background-color: #d4d4d4;
+  color: black;
+  text-align: center;
+  padding: 15px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  font-weight: bold;
+}
+
+.todo-completed-title {
+  background-color: #f1f1f1;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.modal-content {
+  width: 25vh;
+  height: 60vh;
+  text-align: center;
 }

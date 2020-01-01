@@ -7,7 +7,8 @@ import {
   GET_POSTS_API,
   GET_COMMENTS_API,
   GET_ALBUMS_API,
-  GET_ACTIVITIES_API
+  GET_ACTIVITIES_API,
+  GET_TODO_API
 } from "./Constants/ServerUrls";
 import Login from "./Pages/LoginPage/Login";
 import routes from "./routes/routes";
@@ -18,6 +19,7 @@ import PostPage from "./Pages/ProfileDetails/PostPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Gallery from "./Pages/ProfileDetails/GalleryPage";
 import GalleryPage from "./Pages/ProfileDetails/GalleryPage";
+import TodoPage from "./Pages/ProfileDetails/TodoPage";
 
 class App extends Component {
   /* Intializing the state variable */
@@ -32,14 +34,18 @@ class App extends Component {
     sortedActivity: [],
     todayActivity: [],
     yesterdayActivity: [],
-    earlierActivity: []
+    earlierActivity: [],
+    userTodo: [],
+    completedTodo: [],
+    yetToCompleteTodo: [],
+    userProfileUrl: ""
   };
 
   /* function triggered while mounting */
   componentDidMount() {
     const { history, location } = this.props;
     debugger;
-    if (location.pathname === "/Employees-Profile-React-App/") {
+    if (location.pathname === "/Employees-Profile-React-App") {
       history.push(routes.login);
     } else {
       let userDetails = JSON.parse(localStorage.getItem("liveUserDetails"));
@@ -48,6 +54,7 @@ class App extends Component {
       this.loadPostComments(userDetails.id);
       this.loadActivities(userDetails.id);
       this.loadAlbums();
+      this.loadTodo(userDetails.id);
       this.setState({
         userDetails
       });
@@ -164,6 +171,28 @@ class App extends Component {
     }
   };
 
+  /* async function used to fetch the albums */
+  loadTodo = async id => {
+    try {
+      const completedTodo = [];
+      const yetToCompleteTodo = [];
+      const getTodo = await fetchData(GET_TODO_API, "GET");
+      const userTodo = getTodo.todo;
+      let filteredTodo = userTodo.filter(todo => todo.userId === id);
+      debugger;
+      filteredTodo.map(todo => {
+        if (todo.completed === false) {
+          yetToCompleteTodo.push(todo);
+        } else {
+          completedTodo.push(todo);
+        }
+      });
+      this.setState({ filteredTodo, yetToCompleteTodo, completedTodo });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   /* storefunction used to store required data through out the application */
   storeUserName = userAllDetails => {
     debugger;
@@ -173,9 +202,11 @@ class App extends Component {
     this.loadPostComments(details.id);
     this.loadActivities(details.id);
     this.loadAlbums();
+    this.loadTodo(details.id);
     this.setState({
       userProfileName: details.name,
-      userDetails: details
+      userDetails: details,
+      userProfileUrl: details.profilepicture
     });
   };
   render() {
@@ -189,7 +220,11 @@ class App extends Component {
       todayActivity,
       yesterdayActivity,
       earlierActivity,
-      postComments
+      postComments,
+      userTodo,
+      completedTodo,
+      yetToCompleteTodo,
+      userProfileUrl
     } = this.state;
     return (
       <div>
@@ -205,7 +240,11 @@ class App extends Component {
           exact
           path={routes.profile}
           render={props => (
-            <ProfileDetails {...props} userDetails={userDetails} />
+            <ProfileDetails
+              {...props}
+              userDetails={userDetails}
+              userProfileUrl={userProfileUrl}
+            />
           )}
         />
         <Route
@@ -221,6 +260,7 @@ class App extends Component {
               todayActivity={todayActivity}
               yesterdayActivity={yesterdayActivity}
               earlierActivity={earlierActivity}
+              userProfileUrl={userProfileUrl}
             />
           )}
         />
@@ -232,6 +272,21 @@ class App extends Component {
               {...props}
               userDetails={userDetails}
               userAlbums={userAlbums}
+              userProfileUrl={userProfileUrl}
+            />
+          )}
+        />
+        <Route
+          exact
+          path={routes.todo}
+          render={props => (
+            <TodoPage
+              {...props}
+              userDetails={userDetails}
+              userTodo={userTodo}
+              completedTodo={completedTodo}
+              yetToCompleteTodo={yetToCompleteTodo}
+              userProfileUrl={userProfileUrl}
             />
           )}
         />
