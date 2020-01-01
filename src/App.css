@@ -66,11 +66,12 @@
   border-top-right-radius: 30px;
 }
 
+/* sidebar styles */
 .sidebar {
   margin: 0px;
   padding: 0px;
   background-color: #423fe7;
-  position: fixed;
+  position: relative;
   height: 100vh;
   display: flex;
   flex-direction: column;

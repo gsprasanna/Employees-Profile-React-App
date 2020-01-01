@@ -39,7 +39,7 @@ class App extends Component {
   componentDidMount() {
     const { history, location } = this.props;
     debugger;
-    if (location.pathname === "/") {
+    if (location.pathname === "/Employees-Profile-React-App/") {
       history.push(routes.login);
     } else {
       let userDetails = JSON.parse(localStorage.getItem("liveUserDetails"));
