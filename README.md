@@ -1,5 +1,29 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Features
+
+- Built with **ReactJS** Javascript Library for user Interfaces.
+- Uses overridable CSS for all needed style manipulations.
+- Used **ES6 and ES8 features** like `<async/await, variable keywords (let,const)>`.
+- Implement REST API integration.
+- Super lightweight.
+- Very easy to use.
+
+## Screenshots
+
+**Landing Page Screen**
+
+<img width="684" alt="Screenshot 2020-01-01 at 6 41 48 PM" src="https://user-images.githubusercontent.com/51015931/71641778-2b03ba00-2cc7-11ea-95f3-610cf02b60d9.png">
+
+**User Profile screen - User Personal information available in it**
+
+<img width="1413" alt="Screenshot 2020-01-01 at 6 42 21 PM" src="https://user-images.githubusercontent.com/51015931/71641783-4c64a600-2cc7-11ea-9e81-4febd0ed971d.png">
+
+**User Post screen - Post put by the users and recent activities are available**
+
+<img width="1413" alt="Screenshot 2020-01-01 at 6 43 02 PM" src="https://user-images.githubusercontent.com/51015931/71641813-c563fd80-2cc7-11ea-9de7-339ecbd8938c.png">
+
+
 ## Available Scripts
 
 In the project directory, you can run:
