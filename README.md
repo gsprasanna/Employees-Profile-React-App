@@ -13,15 +13,32 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 **Landing Page Screen**
 
-<img width="684" alt="Screenshot 2020-01-01 at 6 41 48 PM" src="https://user-images.githubusercontent.com/51015931/71641778-2b03ba00-2cc7-11ea-95f3-610cf02b60d9.png">
+<img width="947" alt="Screenshot 2020-01-08 at 1 15 54 AM" src="https://user-images.githubusercontent.com/51015931/71924440-0458ee00-31b5-11ea-9dba-d2235cec0d85.png">
 
 **User Profile screen - User Personal information available in it**
 
-<img width="1413" alt="Screenshot 2020-01-01 at 6 42 21 PM" src="https://user-images.githubusercontent.com/51015931/71641783-4c64a600-2cc7-11ea-9e81-4febd0ed971d.png">
+<img width="1409" alt="Screenshot 2020-01-08 at 1 16 24 AM" src="https://user-images.githubusercontent.com/51015931/71924469-15a1fa80-31b5-11ea-9438-3ae40de57209.png">
 
 **User Post screen - Post put by the users and recent activities are available**
 
-<img width="1413" alt="Screenshot 2020-01-01 at 6 43 02 PM" src="https://user-images.githubusercontent.com/51015931/71641813-c563fd80-2cc7-11ea-9de7-339ecbd8938c.png">
+<img width="1396" alt="Screenshot 2020-01-08 at 1 16 49 AM" src="https://user-images.githubusercontent.com/51015931/71924522-30746f00-31b5-11ea-9839-7770578b1619.png">
+
+**ToDo Screen**
+
+<img width="1393" alt="Screenshot 2020-01-08 at 1 17 18 AM" src="https://user-images.githubusercontent.com/51015931/71924625-5994ff80-31b5-11ea-92d0-16e8ab105be7.png">
+
+**Gallery Screen**
+
+<img width="1394" alt="Screenshot 2020-01-08 at 1 18 38 AM" src="https://user-images.githubusercontent.com/51015931/71924668-73cedd80-31b5-11ea-96aa-03ff1293f204.png">
+
+**Album Photos Screen**
+
+<img width="1347" alt="Screenshot 2020-01-08 at 1 19 02 AM" src="https://user-images.githubusercontent.com/51015931/71924748-a082f500-31b5-11ea-8f48-a24965f2e901.png">
+
+
+**Logout**
+
+<img width="668" alt="Screenshot 2020-01-08 at 1 17 49 AM" src="https://user-images.githubusercontent.com/51015931/71924785-b7294c00-31b5-11ea-8c2d-b70db8ade407.png">
 
 
 ## Available Scripts
