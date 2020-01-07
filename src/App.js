@@ -8,18 +8,18 @@ import {
   GET_COMMENTS_API,
   GET_ALBUMS_API,
   GET_ACTIVITIES_API,
-  GET_TODO_API
+  GET_TODO_API,
+  GET_PHOTOS_API
 } from "./Constants/ServerUrls";
 import Login from "./Pages/LoginPage/Login";
 import routes from "./routes/routes";
 import { Route, withRouter } from "react-router-dom";
 import ProfileDetails from "./Pages/ProfileDetails/ProfileDetails";
-import Post from "./Components/Post";
 import PostPage from "./Pages/ProfileDetails/PostPage";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Gallery from "./Pages/ProfileDetails/GalleryPage";
 import GalleryPage from "./Pages/ProfileDetails/GalleryPage";
 import TodoPage from "./Pages/ProfileDetails/TodoPage";
+import PhotosPage from "./Pages/ProfileDetails/PhotosPage";
 
 class App extends Component {
   /* Intializing the state variable */
@@ -38,7 +38,9 @@ class App extends Component {
     userTodo: [],
     completedTodo: [],
     yetToCompleteTodo: [],
-    userProfileUrl: ""
+    userProfileUrl: "",
+    userPhotos: [],
+    selectedAlbumTitle: ""
   };
 
   /* function triggered while mounting */
@@ -53,7 +55,7 @@ class App extends Component {
       this.loadUserPost(userDetails.id);
       this.loadPostComments(userDetails.id);
       this.loadActivities(userDetails.id);
-      this.loadAlbums();
+      this.loadAlbums(userDetails.id);
       this.loadTodo(userDetails.id);
       this.setState({
         userDetails
@@ -68,6 +70,7 @@ class App extends Component {
     try {
       const getUsers = await fetchData(GET_USERS_API, "GET");
       const usersList = getUsers.users;
+      /* set the value of state variable */
       this.setState({ usersList });
     } catch (e) {
       console.error(e);
@@ -103,12 +106,16 @@ class App extends Component {
   };
 
   /* async function used to fetch the albums */
-  loadAlbums = async () => {
+  loadAlbums = async id => {
     try {
       const getAlbums = await fetchData(GET_ALBUMS_API, "GET");
       const userAlbums = getAlbums.album;
-      debugger;
-      this.setState({ userAlbums });
+      const getPhotos = await fetchData(GET_PHOTOS_API, "GET");
+      const userPhotos = getPhotos.albums;
+      const filteredUserPhotos = userPhotos.filter(album => {
+        return album.userId === id;
+      });
+      this.setState({ userAlbums, userPhotos: filteredUserPhotos });
     } catch (e) {
       console.error(e);
     }
@@ -158,7 +165,7 @@ class App extends Component {
         );
       });
 
-      /* set the state variable */
+      /* set the value of state variable */
       this.setState({
         userActivity: filteredActivity,
         sortedActivity,
@@ -201,12 +208,18 @@ class App extends Component {
     this.loadUserPost(details.id);
     this.loadPostComments(details.id);
     this.loadActivities(details.id);
-    this.loadAlbums();
+    this.loadAlbums(details.id);
     this.loadTodo(details.id);
     this.setState({
       userProfileName: details.name,
       userDetails: details,
       userProfileUrl: details.profilepicture
+    });
+  };
+  storeAlbumName = value => {
+    debugger;
+    this.setState({
+      selectedAlbumTitle: value
     });
   };
   render() {
@@ -224,7 +237,10 @@ class App extends Component {
       userTodo,
       completedTodo,
       yetToCompleteTodo,
-      userProfileUrl
+      userProfileUrl,
+      userPhotos,
+      storeAlbumName,
+      selectedAlbumTitle
     } = this.state;
     return (
       <div>
@@ -273,6 +289,8 @@ class App extends Component {
               userDetails={userDetails}
               userAlbums={userAlbums}
               userProfileUrl={userProfileUrl}
+              userPhotos={userPhotos}
+              storeAlbumName={this.storeAlbumName}
             />
           )}
         />
@@ -287,6 +305,18 @@ class App extends Component {
               completedTodo={completedTodo}
               yetToCompleteTodo={yetToCompleteTodo}
               userProfileUrl={userProfileUrl}
+            />
+          )}
+        />
+        <Route
+          exact
+          path={routes.albums}
+          render={props => (
+            <PhotosPage
+              {...props}
+              userDetails={userDetails}
+              userPhotos={userPhotos}
+              selectedAlbumTitle={selectedAlbumTitle}
             />
           )}
         />

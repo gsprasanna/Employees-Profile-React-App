@@ -21,6 +21,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  background-image: linear-gradient(180deg, #1d1ef5d9, transparent);
 }
 
 .App-link {
@@ -52,6 +53,8 @@
   border: 2px solid white;
   height: 50vh;
   width: 70vh;
+  background-color: white;
+  border-radius: 30px;
 }
 
 .user-account-list {
@@ -62,6 +65,11 @@
 
 .user-account-list:hover {
   text-decoration: none;
+  cursor: pointer !important;
+}
+
+.user-profile-name:hover {
+  cursor: pointer;
 }
 
 .account-title {
@@ -80,7 +88,8 @@
 .sidebar {
   /* margin: 0px; */
   padding: 0px;
-  background-color: #423fe7;
+  /* background-color: #423fe7; */
+  background-image: linear-gradient(blue, #3b1c9a, #611d61);
   position: relative;
   /* height: 100vh; */
   display: flex;
@@ -232,7 +241,112 @@
 }
 
 .modal-content {
-  width: 25vh;
-  height: 60vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+  width: 285px !important;
+  left: 590px;
+  height: 420px !important;
+  border-radius: 35px !important;
+  top: 65px;
+}
+
+.modal-body {
   text-align: center;
+}
+
+.modal-backdrop.show {
+  opacity: 0 !important;
+}
+
+.gallery-thumbnail-icon {
+  position: relative;
+  height: 150px;
+  border-radius: 14px !important;
+  width: 110px;
+}
+
+.thumbnail-angle1 {
+  transform: rotate(-20deg);
+  z-index: 1;
+}
+
+.thumbnail-angle2 {
+  transform: rotate(-7deg);
+  top: -163px;
+  left: 10px;
+  z-index: 1;
+}
+.thumbnail-angle3 {
+  transform: rotate(-2deg);
+  top: -322px;
+  left: 30px;
+  z-index: 1;
+}
+.thumbnail-angle4 {
+  transform: rotate(12deg);
+  top: -477px;
+  left: 54px;
+  z-index: 1;
+}
+
+.album-align {
+  height: 198px;
+  width: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px !important;
+  cursor: pointer;
+}
+
+.thumbnail-align {
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding: 36px;
+  margin-top: 16px;
+  overflow: hidden;
+  height: 550px;
+}
+.album-title {
+  background-color: #f9f8f8a1;
+  border: 2px solid ghostwhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0px;
+  color: black;
+}
+
+.album-title:hover {
+  text-decoration: none !important;
+}
+
+.album-header {
+  font-weight: bold;
+  font-size: larger;
+  color: #636060;
+  margin: 20px 50px !important;
+}
+
+.album-header:hover {
+  text-decoration: none;
+  color: #636060;
+}
+
+.photo-grid {
+  padding: 0px !important;
+  margin: 5px;
+  height: 200px;
+}
+
+.photos-breadcrumb:hover {
+  text-decoration: none;
+  cursor: pointer;
 }

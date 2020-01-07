@@ -6,7 +6,7 @@ export class GeoMap extends Component {
     return (
       <Map
         google={this.props.google}
-        zoom={14}
+        zoom={10}
         initialCenter={{
           lat: -1.2884,
           lng: 36.8233

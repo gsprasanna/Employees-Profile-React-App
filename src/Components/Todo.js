@@ -43,8 +43,11 @@ const Todo = ({
                     className=""
                     roundedCircle
                   />
-                  <h4>{fullName}</h4>
                 </div>
+                <label>{fullName}</label>
+                <br />
+                <label className="tbl-key-color">{userDetails.email}</label>
+                <hr />
               </Modal.Body>
               <Modal.Footer>
                 <NavLink to={routes.login} className="m-auto">

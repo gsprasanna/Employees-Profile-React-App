@@ -3,7 +3,7 @@ import { faShare, faCommentAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card } from "react-bootstrap";
 import LoadingIndicator from "./LoadingIndicator";
-import { Row, Image, Modal, ModalBody, Button } from "react-bootstrap";
+import { Row, Image, Modal, Button } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
 import routes from "../routes/routes";
 
@@ -49,8 +49,11 @@ const Post = ({
                   className=""
                   roundedCircle
                 />
-                <h4>{fullName}</h4>
               </div>
+              <label>{fullName}</label>
+              <br />
+              <label className="tbl-key-color">{userEmail}</label>
+              <hr />
             </Modal.Body>
             <Modal.Footer>
               <NavLink to={routes.login} className="m-auto">

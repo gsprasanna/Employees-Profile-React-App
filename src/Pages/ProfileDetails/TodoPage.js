@@ -16,7 +16,7 @@ class TodoPage extends Component {
 
     return (
       <div className="row">
-        <ProfileSideBar />
+        <ProfileSideBar fullName={userDetails.name} />
         <Todo
           fullName={userDetails.name}
           profilePicture={userDetails.profilepicture}

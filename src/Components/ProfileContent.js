@@ -40,7 +40,7 @@ const ProfileContent = ({
               className="profile-img"
               roundedCircle
             />
-            <label>{fullName}</label>
+            <label className="user-profile-name">{fullName}</label>
           </Link>
           <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Body>
@@ -52,8 +52,11 @@ const ProfileContent = ({
                   className=""
                   roundedCircle
                 />
-                <h4>{fullName}</h4>
               </div>
+              <label>{fullName}</label>
+              <br />
+              <label className="tbl-key-color">{mailId}</label>
+              <hr />
             </Modal.Body>
             <Modal.Footer>
               <NavLink to={routes.login} className="m-auto">

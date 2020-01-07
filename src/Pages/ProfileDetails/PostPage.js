@@ -26,7 +26,7 @@ class PostPage extends Component {
           <LoadingIndicator />
         ) : (
           <>
-            <ProfileSideBar />
+            <ProfileSideBar fullName={userDetails.name} />
             <Post
               fullName={userDetails.name}
               profilePicture={userDetails.profilepicture}
